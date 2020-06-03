@@ -30,3 +30,4 @@ db.sequelize.sync().then(function() {
 });
 
 //Testing Travis
+//testing travis
