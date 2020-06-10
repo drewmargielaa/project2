@@ -1,10 +1,11 @@
 /* Add a black background color to the top navigation */
 
 body {
-    background-image: url(https://img.freepik.com/free-photo/programming-code-abstract-technology-background-software-developer-computer-script_34663-31.jpg?size=626&ext=jpg);
+    /* background-image: url(https://img.freepik.com/free-photo/programming-code-abstract-technology-background-software-developer-computer-script_34663-31.jpg?size=626&ext=jpg); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
+    background-color: black;
   }
 
 .topnav {
@@ -49,4 +50,12 @@ h1{
 
 .col-1 {
     background-color: white;;
+}
+
+.jumbotron{
+  background-image: url("https://coastalhospitalityhotels.com/wp-content/uploads/2016/03/careers-stock-slider-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
