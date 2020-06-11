@@ -1,0 +1,23 @@
+language: node_js
+node_js: "12"
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - node_modules
+before_install:
+  - mysql -e 'CREATE DATABASE testdb;'
+
+  deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "YOUR ENCRYPTED API KEY"
