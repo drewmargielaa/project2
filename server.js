@@ -49,14 +49,18 @@ app.get("/job", function(req, res) {
     res.render("portfolio");
   });
 
-  app.get("/signup", function(req, res) {
-    // console.log(req)
-    res.render("signup");
+  app.get("/login", function(req, res) {
+      res.render("login");
   });
+
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+});
+
 
   // Requiring our routes
 require("./routes/api-routes")(app);
-// require("./routes/html-routes")(app);
+require("./routes/html-routes")(app);
 
 
 // Start our server so that it can begin listening to client requests.
