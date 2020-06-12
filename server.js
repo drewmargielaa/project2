@@ -1,15 +1,27 @@
 //  dependecies
 const express = require("express");
 const handlebars = require("express-handlebars");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
 var app = express();
 
 var PORT = process.env.PORT || 8000;
 
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
+
 // data parsing thru express app
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //  setting up handlebars
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
@@ -38,6 +50,19 @@ app.get("/job", function(req, res) {
     res.render("portfolio");
   });
 
+  app.get("/login", function(req, res) {
+      res.render("login");
+  });
+
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+});
+
+
+  // Requiring our routes
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
+
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
@@ -45,35 +70,4 @@ app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);
   });
 
-// Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
-// Requiring passport as we've configured it
-var passport = require("./config/passport");
 
-// Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
-var db = require("./models");
-
-// Creating express app and configuring middleware needed for authentication
-var app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-// We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
-
-// Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
-});
-
-//test
