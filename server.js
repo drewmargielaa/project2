@@ -27,6 +27,16 @@ app.get("/job", function(req, res) {
     res.render("jobs");
   });
 
+  app.get("/learning", function(req, res) {
+    // console.log(req)
+    res.render("learning");
+  });
+
+  app.get("/portfolio", function(req, res) {
+    // console.log(req)
+    res.render("portfolio");
+  });
+
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

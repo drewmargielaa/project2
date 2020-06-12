@@ -6,6 +6,8 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
     background-color: black;
+    /* background: transparent; */
+
   }
 
 .topnav {
@@ -22,7 +24,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 22px;
-    margin-right: 90px;
+    /* margin-right: 90px; */
   }
   
   /* Change the color of links on hover */
@@ -79,4 +81,16 @@ input[type=text] {
 
 input[type=text]:focus {
   width: 100%;
+}
+
+/* portfolio sec */
+
+.mario,
+.fernando,
+.joel,
+.carlos,
+.andrew{
+  color: #ddd;
+  border: .2px red solid;
+
 }
