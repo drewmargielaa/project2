@@ -17,6 +17,7 @@ app.set("view engine", "handlebars");
 
 
 // routes
+
 app.get("/", function(req, res) {
     // console.log(req)
     res.render("index");
