@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Getting references to our form and inputs
-  var loginForm = $("form.login");
+  var loginForm = $("form");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
@@ -28,7 +28,8 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function() {
+      .then(function(user) {
+        localStorage.setItem("currUser",JSON.stringify(user))
         window.location.replace("/home");
 
         // If there's an error, log the error
