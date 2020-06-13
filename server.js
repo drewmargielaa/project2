@@ -35,6 +35,11 @@ app.get("/", function(req, res) {
     res.render("index");
   });
 
+  app.get("/home", function(req, res) {
+    // console.log(req)
+    res.render("home");
+  });
+
 app.get("/job", function(req, res) {
     // console.log(req)
     res.render("jobs");
@@ -51,11 +56,11 @@ app.get("/job", function(req, res) {
   });
 
   app.get("/login", function(req, res) {
-      res.render("login");
+      res.render("login",{layout:'auth'});
   });
 
   app.get("/signup", function(req, res) {
-    res.render("signup");
+    res.render("signup",{layout:'auth'});
 });
 
 
