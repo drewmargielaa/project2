@@ -35,6 +35,11 @@ app.get("/", function(req, res) {
     res.render("index");
   });
 
+  app.get("/members", function(req, res) {
+    // console.log(req)
+    res.render("home");
+  });
+
 app.get("/job", function(req, res) {
     // console.log(req)
     res.render("jobs");
