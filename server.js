@@ -66,7 +66,7 @@ app.get("/job", function(req, res) {
 
   // Requiring our routes
 require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
+// require("./routes/html-routes")(app);
 
 
 // Start our server so that it can begin listening to client requests.

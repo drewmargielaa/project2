@@ -28,10 +28,10 @@ $(document).ready(function() {
   // Otherwise we log any errors
   function signUpUser(user) {
     $.post("/api/signup", {
-      email: user_data.email,
-      password: user_data.password,
-      firstName: user_data.first_name,
-      lastName: user_data.last_name
+      email: user.email,
+      password: user.password,
+      firstName: user.firstName,
+      lastName: user.lastName
     })
       .then(function(user) {
         localStorage.setItem("currUser",JSON.stringify(user));
