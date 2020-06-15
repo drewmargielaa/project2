@@ -1,19 +1,15 @@
-//  dependecies
-const express = require("express");
-const handlebars = require("express-handlebars");
+// Requiring necessary npm packages
+var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
-var app = express();
-
-var PORT = process.env.PORT || 8000;
-
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8000;
 var db = require("./models");
 
-// data parsing thru express app
+// Creating express app and configuring middleware needed for authentication
+var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -23,57 +19,46 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-//  setting up handlebars
+// seting up handlebars 
+const handlebars = require("express-handlebars");
+const isAuthenticated = require("./config/middleware/isAuthenticated");
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
-// routes
-
+//  handlebar routes
 app.get("/", function(req, res) {
-    // console.log(req)
-    res.render("index");
-  });
 
-  app.get("/home", function(req, res) {
-    // console.log(req)
-    res.render("home");
-  });
+  res.render("index");
+});
 
-app.get("/job", function(req, res) {
-    // console.log(req)
-    res.render("jobs");
-  });
+app.get("/login", function(req, res) {
 
-  app.get("/learning", function(req, res) {
-    // console.log(req)
-    res.render("learning");
-  });
+  res.render("login");
+});
 
-  app.get("/portfolio", function(req, res) {
-    // console.log(req)
-    res.render("portfolio");
-  });
+app.get("/member", isAuthenticated, function(req, res) {
 
-  app.get("/login", function(req, res) {
-      res.render("login",{layout:'auth'});
-  });
+  res.render("member");
+});
 
-  app.get("/signup", function(req, res) {
-    res.render("signup",{layout:'auth'});
+app.get("/job", isAuthenticated, function(req, res) {
+
+  res.render("jobs");
+});
+
+app.get("/learning", isAuthenticated,function(req, res) {
+
+  res.render("learning");
 });
 
 
-  // Requiring our routes
-require("./routes/api-routes")(app);
-// require("./routes/html-routes")(app);
+// Requiring our routes
+// require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
-
-// Start our server so that it can begin listening to client requests.
+// Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
-
-

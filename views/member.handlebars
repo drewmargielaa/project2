@@ -1,4 +1,27 @@
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
+
+	<header id="header">
+        <div class="inner">
+            <a href="" class="logo">Macaw</a>
+            <nav id="nav">
+                <a href="/member" class="active">Home</a>
+                {{!-- <a href="/portfolio">Portfolio</a> --}}
+                <a href="/learning">Learning</a>
+                <a href="/job">Job Market</a>
+                {{!-- <a href="/forum">Forum</a> --}}
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+   					<div class="dropdown-menu">
+      					{{!-- <a class="dropdown-item" href="#" style="color: black;">Link 1</a>
+      					<a class="dropdown-item" href="#" style="color: black;">Link 2</a> --}}
+      					<a class="dropdown-item" href="/logout" style="color: black;">Log Out</a>
+    				</div>
+            </nav>
+        </div>
+    </header>
 		<!-- Header -->
 	<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     		<!-- Banner -->
@@ -34,7 +57,7 @@
 								<h3>Pellentesque adipis</h3>
 							</header>
 							<div class="image fit">
-								<img src="images/pic01.jpg" alt="" />
+								<img src="/assets/images/pic01.jpg" alt="" />
 							</div>
 							<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>
 						</div>
@@ -45,7 +68,7 @@
 								<h3>Morbi interdum mol</h3>
 							</header>
 							<div class="image fit">
-								<img src="images/pic02.jpg" alt="" />
+								<img src="/assets/images/pic02.jpg" alt="" />
 							</div>
 							<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>
 						</div>

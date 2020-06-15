@@ -10,9 +10,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id,
-      firstName: req.user.firstName,
-      lastName: req.user.lastName
+      id: req.user.id
     });
   });
 
@@ -26,12 +24,14 @@ module.exports = function(app) {
       firstName: req.body.firstName,
       lastName: req.body.lastName
     })
-      .then(function(user) {
-        res.json(user);
+      .then(function() {
+        res.redirect(307, "/api/login");
+        console.log("line 29 api-rute")
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
+      console.log("api-route linija 31 post metoda")
   });
 
   // Route for logging user out
@@ -43,16 +43,16 @@ module.exports = function(app) {
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
+      console.log("line 46 api-rute")
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
+      console.log("line 50 api-rute")
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName
+        id: req.user.id
       });
     }
   });
