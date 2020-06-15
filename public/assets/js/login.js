@@ -17,21 +17,20 @@ $(document).ready(function() {
     }
 
     // If we have an email and password we run the loginUser function and clear the form
-    loginUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    loginUser(userData);
+    // emailInput.val("");
+    // passwordInput.val("");
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(email, password) {
+  function loginUser(user) {
     $.post("/api/login", {
-      email: email,
-      password: password
-    })
-      .then(function(user) {
-        localStorage.setItem("currUser",JSON.stringify(user))
-        window.location.replace("/home");
+      email: user.email,
+      password: user.password
 
+    })
+      .then(function() {
+        window.location.replace("/member");
         // If there's an error, log the error
       })
       .catch(function(err) {
@@ -39,4 +38,3 @@ $(document).ready(function() {
       });
   }
 });
-

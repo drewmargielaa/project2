@@ -13,11 +13,11 @@ create table user_data(
     primary key(user_id)
 );
 
-create table login(
-    loginUser_id int auto_increment not null,
-    emailAdress varchar(50) not null,
-    password  varchar(100) not null,
-    loged_in boolean default false,
+-- for the future features
+create table usersPortfolio(
+    userPort_id int auto_increment not null,
     user_id int,
-    primary key(loginUser_id)
-);
+    links varchar(100) not null,
+    bio varchar(150) not null
+)
+

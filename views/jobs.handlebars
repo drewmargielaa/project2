@@ -1,10 +1,33 @@
-{{!-- <title>Macaw/Jobs</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="public/assets/stylesheets/main.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	 --}}
-	<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+	<head>
+		<title>Macaw/Jobs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+        		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+	<header id="header">
+        <div class="inner">
+            <a href="" class="logo">Macaw</a>
+            <nav id="nav">
+                <a href="/member">Home</a>
+                {{!-- <a href="/portfolio">Portfolio</a> --}}
+                <a href="/learning">Learning</a>
+                <a href="/job" class="active">Job Market</a>
+                {{!-- <a href="/forum">Forum</a> --}}
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+   					<div class="dropdown-menu">
+      					{{!-- <a class="dropdown-item" href="#" style="color: black;">Link 1</a>
+      					<a class="dropdown-item" href="#" style="color: black;">Link 2</a> --}}
+      					<a class="dropdown-item" href="/logout" style="color: black;">Log Out</a>
+    				</div>
+            </nav>
+        </div>
+    </header>
 
 		<!-- Main -->
 			<section id="main">
@@ -13,24 +36,33 @@
 						<h1>Careers</h1>
 						<p>Your dream job is one click away!</p>
 					</header>
-					<a href="#" class="image fit"><img src="public/assets/Images/pic12.jpg" alt=""></a>
+					<a href="#" class="image fit"><img src="/assets/Images/pic12.jpg"></a>
 				</div>
             </section>
     
     <title>Jobs</title>
     <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
-          <div class="container text-center">
-            <h1 class="display-3">Jobs</h1> 
-            <form id="jobSearchBox">
-              <input type="text" name="search" placeholder="Search.." id="input">
-            </form>
+      <div class="container text-center">
+        <h1 class="display-3">Jobs</h1> 
+          <form>
+				      <input type="text"  name="search" placeholder="Search.." id="input">
+              {{!-- <input type="text"  name="search" placeholder="Search.." id="input"> --}}
+              <button type="submit">Search..<i id="btn"></i></button>
+          </form>
+        </div>
+        <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center" id="displayJob">
 
-          </div>
-          <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
-            <div id="jobQueryDisplay"></div>
-          </div>
+            <div id="job"></div>
+
+
+        </div>
     
     </div>
+    {{!-- script files --}}
+	<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 
 	<!--Media Objects-->
         <ul class="list-unstyled">
@@ -60,5 +92,5 @@
 
 
 
-    <script src="/assets/js/jobQueries.js"></script>
+    <script src="/assets/js/jobAPI.js"></script>
 	<script src="assets/js/main.js"></script>
