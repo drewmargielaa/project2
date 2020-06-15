@@ -1,18 +1,23 @@
 
-  <link rel="stylesheet" href="/assets/stylesheets/main.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<head>
+		<title>Macaw/Jobs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+        		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
 
 	<header id="header">
         <div class="inner">
             <a href="" class="logo">Macaw</a>
             <nav id="nav">
-                <a href="/member" class="active">Home</a>
+                <a href="/member">Home</a>
                 {{!-- <a href="/portfolio">Portfolio</a> --}}
                 <a href="/learning">Learning</a>
-                <a href="/job">Job Market</a>
+                <a href="/job" class="active">Job Market</a>
                 {{!-- <a href="/forum">Forum</a> --}}
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
    					<div class="dropdown-menu">
@@ -31,24 +36,26 @@
 						<h1>Careers</h1>
 						<p>Your dream job is one click away!</p>
 					</header>
-					<a href="#" class="image fit"><img src="/assets/Images/pic12.jpg" alt=""></a>
+					<a href="#" class="image fit"><img src="/assets/Images/pic12.jpg"></a>
 				</div>
             </section>
     
     <title>Jobs</title>
     <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
-          <div class="container text-center">
-            <h1 class="display-3">Jobs</h1> 
-            <form id="jobSearchBox">
-              <div id="jobSearch">
-				  <input type="text" name="search" placeholder="Search.." id="input">
-			  </div>
-            </form>
+      <div class="container text-center">
+        <h1 class="display-3">Jobs</h1> 
+          <form>
+				      <input type="text"  name="search" placeholder="Search.." id="input">
+              {{!-- <input type="text"  name="search" placeholder="Search.." id="input"> --}}
+              <button type="submit">Search..<i id="btn"></i></button>
+          </form>
+        </div>
+        <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center" id="displayJob">
 
-          </div>
-          <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
-            <div id="jobQueryDisplay"></div>
-          </div>
+            <div id="job"></div>
+
+
+        </div>
     
     </div>
     {{!-- script files --}}
@@ -56,26 +63,25 @@
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
-  <script src="/assets/js/jobQueries.js"></script>
 
 	<!--Media Objects-->
         <ul class="list-unstyled">
             <li class="media">
-              <img src="/assets/images/65053.png" class="mr-3" alt="..." style="width:100px;height:100px;">
+              <img src="images/65053.png" class="mr-3" alt="..." style="width:100px;height:100px;">
               <div class="media-body">
                 <h5 class="mt-0 mb-1">Add Job API here</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
               </div>
             </li>
             <li class="media my-4">
-              <img src="/assets/images/65053.png" class="mr-3" alt="..." style="width:100px;height:100px;">
+              <img src="images/65053.png" class="mr-3" alt="..." style="width:100px;height:100px;">
               <div class="media-body">
                 <h5 class="mt-0 mb-1">Add Job API here</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
               </div>
             </li>
             <li class="media">
-              <img src="/assets/images/65053.png" class="mr-3" alt="..." style="width:100px;height:100px;">
+              <img src="images/65053.png" class="mr-3" alt="..." style="width:100px;height:100px;">
               <div class="media-body">
                 <h5 class="mt-0 mb-1">Add Job API here</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -86,5 +92,5 @@
 
 
 
-    <script src="/assets/js/jobQueries.js"></script>
-	<script src="/assets/js/main.js"></script>
+    <script src="/assets/js/jobAPI.js"></script>
+	<script src="assets/js/main.js"></script>
